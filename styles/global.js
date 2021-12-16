@@ -18,6 +18,7 @@ export default {
     flex: 1,
     justifyContent: 'center',
     backgroundColor: '#131133',
+    position: 'relative',
   },
   background: {
     backgroundColor: '#131133',
@@ -84,4 +85,12 @@ export default {
     },
     mainInput: {},
   },
+
+  activity_indicator: {
+    container: {
+      position: 'absolute',
+      bottom: 100,
+      left: "50%"
+    }
+  }
 };
