@@ -10,7 +10,8 @@ import {
 import globalStyles from '../styles/global';
 
 const login = () => {
-  const [loginClicked, setLoginClicked] = useState(false);
+  const [loginBtnEnabled, setLoginBtnEnabled] = useState('enabled');
+
   const InputContainer = ({placeholder, onChangeText}) => {
     const [hasFocus, setHasFocus] = useState('default');
     const [val, setVal] = useState('');
@@ -45,6 +46,12 @@ const login = () => {
     );
   };
 
+  const touchableOpacityProps = {
+      onPress: () => setLoginBtnEnabled('disabled'),
+      disabled: loginBtnEnabled === 'disabled' ? true : false,
+      style: [globalStyles.button.common, globalStyles.button[loginBtnEnabled]]
+  }
+
   const test = {
     item1: 'abcd',
   };
@@ -60,12 +67,12 @@ const login = () => {
       <InputContainer placeholder="PASSWORD" />
 
       <TouchableOpacity
-        onPress={() => setLoginClicked(true)}
-        style={globalStyles.button}>
+        {...touchableOpacityProps}
+        >
         <Text style={globalStyles.button_text}>Log In</Text>
       </TouchableOpacity>
 
-      {loginClicked && (
+      {loginBtnEnabled === 'disabled' && (
         <View style={globalStyles.activity_indicator.container}>
           <ActivityIndicator size="large" color="#3D84EA" />
         </View>

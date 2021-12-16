@@ -32,13 +32,21 @@ export default {
     input: {},
   },
   button: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#3D84EA',
-    height: 50,
-    marginTop: 10,
-    padding: 10,
-    borderRadius: 8,
+    common: {
+      justifyContent: 'center',
+      alignItems: 'center',
+      height: 50,
+      marginTop: 10,
+      padding: 10,
+      borderRadius: 8,
+    },
+    enabled: {
+      backgroundColor: '#3D84EA',
+    },
+    disabled: {
+      backgroundColor: '#606F87',
+    }
+    
   },
   button_text: {
     color: 'white',
